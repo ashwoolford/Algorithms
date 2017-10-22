@@ -4,12 +4,14 @@ package dijkstra.s.algorithm;
 
 public class DijkstraSAlgorithm {
     
-    public static final int V = 3;
+    public static final int V = 5;
     public static void main(String[] args) {
        
-       int adj[][] = {{0,2,5},
-                      {2,0,7},
-                      {5,7,0}
+       int adj[][] = {{0,5,0,0,2},
+                      {5,0,7,3,4},
+                      {0,7,0,9,0},
+                      {0,3,9,0,10},
+                      {2,4,0,10,0}
                      };
        
        dijkstra(adj);
@@ -63,7 +65,11 @@ public class DijkstraSAlgorithm {
               
           }  
         }
-       printSol(dist);      
+        
+       
+       printSol(dist); 
+        
+        
     }
     
     
@@ -73,5 +79,7 @@ public class DijkstraSAlgorithm {
     
     public static void println(Object ob){
         System.out.println(ob);
-    }   
+    }
+    
+    
 }
