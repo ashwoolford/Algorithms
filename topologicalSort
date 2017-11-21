@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef vector<int> v32;
+typedef stack<int> s32;
+typedef v32::iterator it32;
+typedef int i32;
+typedef bool b;
+
+#define forn(x , n) for(int x = 0 ; i < n; ++x)
+
+
+void recursion(s32 &sta , b visited[], v32 adj[] , i32 v){
+  visited[v] = true;
+  if(!adj[v].empty()){
+    for(it32 it = adj[v].begin() ; it != adj[v].end() ; ++it) {
+     if(!visited[*it]) recursion(sta , visited , adj , *it); 
+}
+}
+  sta.push(v);
+}
+void doSort(v32 adj[] , i32 v){
+ bool visited[v];
+ s32 sta;
+ i32 i;
+ forn(i , v) {
+ visited[i] = false;
+} 
+ forn(i , v){
+ if(!visited[i]) recursion(sta , visited , adj , i);
+} 
+ while(!sta.empty()){
+  cout<<sta.top()<<" ";
+  sta.pop();
+} 
+ 
+}
+int main(){
+ v32 adj[100];
+ adj[5].push_back(2);
+ adj[5].push_back(0);
+ adj[4].push_back(0);
+ adj[4].push_back(1);
+ adj[2].push_back(3);
+ adj[3].push_back(1);
+ doSort(adj , 6);
+ 
+ return 0;
+}
